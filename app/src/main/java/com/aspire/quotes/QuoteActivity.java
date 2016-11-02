@@ -1,4 +1,4 @@
-package com.aspire.quiz.geoquizz;
+package com.aspire.quotes;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class QuizActivity extends AppCompatActivity {
+import com.aspire.quotes.R;
+
+public class QuoteActivity extends AppCompatActivity {
 
     private Button mTrueButton;
     private Button mFalseButton;
@@ -15,7 +17,7 @@ public class QuizActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz);
+        setContentView(R.layout.activity_quote);
 
         mTrueButton = (Button) findViewById(R.id.trueButton);
         mFalseButton = (Button) findViewById(R.id.falseButton);
@@ -24,7 +26,7 @@ public class QuizActivity extends AppCompatActivity {
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(QuizActivity.this,
+                Toast.makeText(QuoteActivity.this,
                         R.string.right_toast,
                         Toast.LENGTH_SHORT).show();
 
@@ -34,7 +36,7 @@ public class QuizActivity extends AppCompatActivity {
         mFalseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(QuizActivity.this,
+                Toast.makeText(QuoteActivity.this,
                         R.string.wrong_toast,
                         Toast.LENGTH_SHORT).show();
 
@@ -44,7 +46,7 @@ public class QuizActivity extends AppCompatActivity {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(QuizActivity.this,
+                Toast.makeText(QuoteActivity.this,
                         R.string.next_toast,
                         Toast.LENGTH_SHORT).show();
             }

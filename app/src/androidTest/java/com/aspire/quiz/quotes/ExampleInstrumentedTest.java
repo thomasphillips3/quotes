@@ -1,4 +1,4 @@
-package com.aspire.quiz.geoquizz;
+package com.aspire.quiz.quotes;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -1,10 +1,10 @@
-package com.aspire.quiz.geoquizz;
+package com.aspire.quiz.quotes;
 
 /**
  * Created by tpphilli on 11/2/16.
  */
 
-public class Question {
+public class Quote {
     private int mTextResId;
     private boolean mAnswerTrue;
 
@@ -26,7 +26,7 @@ public class Question {
         return mAnswerTrue;
     }
 
-    public Question(int textResId, boolean answerTrue) {
+    public Quote(int textResId, boolean answerTrue) {
         mTextResId = textResId;
         mAnswerTrue = answerTrue;
     }
