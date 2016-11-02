@@ -10,6 +10,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private Button mTrueButton;
     private Button mFalseButton;
+    private Button mNextButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +19,7 @@ public class QuizActivity extends AppCompatActivity {
 
         mTrueButton = (Button) findViewById(R.id.trueButton);
         mFalseButton = (Button) findViewById(R.id.falseButton);
+        mNextButton = (Button) findViewById(R.id.next_button);
 
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +38,15 @@ public class QuizActivity extends AppCompatActivity {
                         R.string.wrong_toast,
                         Toast.LENGTH_SHORT).show();
 
+            }
+        });
+
+        mNextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(QuizActivity.this,
+                        R.string.next_toast,
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }
