@@ -2,9 +2,14 @@
     <string name="app_name">Quotes</string>
     <string name="question_text">This is True</string>
     <string name="true_button">True</string>
-    <string name="next_button">Next</string>
+    <string name="next_button">Next Quote</string>
     <string name="false_button">False</string>
     <string name="right_toast">Right!</string>
     <string name="wrong_toast">Wrong!</string>
     <string name="next_toast">Next</string>
+
+    <!--Quotes-->
+    <string name="quote_malcolm_education">Without education, you’re not going anywhere in this world.</string>
+    <string name="quote_hogan_life">I woke up and realized life is great and people are awesome and life is worth living.</string>
+    <string name="quote_kanye_ability_to_learn">I was never really good at anything except for the ability to learn.</string>
 </resources>

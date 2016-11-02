@@ -4,15 +4,15 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
-
-import com.aspire.quotes.R;
 
 public class QuoteActivity extends AppCompatActivity {
 
     private Button mTrueButton;
     private Button mFalseButton;
     private Button mNextButton;
+    private TextView mQuoteBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class QuoteActivity extends AppCompatActivity {
         mTrueButton = (Button) findViewById(R.id.trueButton);
         mFalseButton = (Button) findViewById(R.id.falseButton);
         mNextButton = (Button) findViewById(R.id.next_button);
+        mQuoteBox = (TextView) findViewById(R.id.quoteBox);
 
         mTrueButton.setOnClickListener(new View.OnClickListener() {
             @Override
