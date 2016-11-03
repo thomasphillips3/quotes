@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class QuoteActivity extends AppCompatActivity {
 
     private Button mTrueButton;
@@ -47,8 +49,16 @@ public class QuoteActivity extends AppCompatActivity {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String hoganQuote = getString(R.string.quote_hogan_life);
+                String kanyeQuote = getString(R.string.quote_kanye_ability_to_learn);
+                String malcolmQuote = getString(R.string.quote_malcolm_education);
+                String carterGQuote = getString(R.string.quote_carter_g_control);
+                String[] quotes = { hoganQuote, kanyeQuote, malcolmQuote, carterGQuote };
+                Random random = new Random();
+                int i = random.nextInt(quotes.length);
+
                 Toast.makeText(QuoteActivity.this,
-                        R.string.next_toast,
+                        quotes[i],
                         Toast.LENGTH_SHORT).show();
             }
         });
