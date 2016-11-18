@@ -11,54 +11,83 @@ import java.util.Random;
 
 public class QuoteActivity extends AppCompatActivity {
 
-    private Button mTrueButton;
-    private Button mFalseButton;
+    private Button mPrevButton;
     private Button mNextButton;
-    private TextView mQuoteBox;
+    private Button mRandomButton;
+    private TextView mQuoteTextView;
+
+    String hulkHogan = "Hulk Hogan";
+    String kanyeWest = "Kanye West";
+    String malcolmX = "Malcolm X";
+    String carterG = "Carter G. Woodson";
+
+    private Quote[] mQuoteBank = new Quote[] {
+            new Quote(R.string.quote_hogan_life, hulkHogan),
+            new Quote(R.string.quote_kanye_ability_to_learn, kanyeWest),
+            new Quote(R.string.quote_malcolm_education, malcolmX),
+            new Quote(R.string.quote_carter_g_control, carterG)
+    };
+
+    private int mCurrentIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quote);
 
-        mTrueButton = (Button) findViewById(R.id.trueButton);
-        mFalseButton = (Button) findViewById(R.id.falseButton);
-        mNextButton = (Button) findViewById(R.id.next_button);
-        mQuoteBox = (TextView) findViewById(R.id.quoteBox);
+        mPrevButton = (Button) findViewById(R.id.prevButton);
+        mNextButton = (Button) findViewById(R.id.nextButton);
+        mRandomButton = (Button) findViewById(R.id.random_button);
 
-        mTrueButton.setOnClickListener(new View.OnClickListener() {
+        mQuoteTextView = (TextView) findViewById(R.id.quoteBox);
+        int quote = mQuoteBank[mCurrentIndex].getTextResId();
+        mQuoteTextView.setText(quote);
+
+        mPrevButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (mCurrentIndex > 0)
+                    mCurrentIndex--;
+                else
+                    mCurrentIndex = mQuoteBank.length-1;
+
+                int quote = mQuoteBank[mCurrentIndex].getTextResId();
+                mQuoteTextView.setText(quote);
+
                 Toast.makeText(QuoteActivity.this,
-                        R.string.right_toast,
+                        R.string.prev_toast,
                         Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-        mFalseButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(QuoteActivity.this,
-                        R.string.wrong_toast,
-                        Toast.LENGTH_SHORT).show();
-
             }
         });
 
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String hoganQuote = getString(R.string.quote_hogan_life);
-                String kanyeQuote = getString(R.string.quote_kanye_ability_to_learn);
-                String malcolmQuote = getString(R.string.quote_malcolm_education);
-                String carterGQuote = getString(R.string.quote_carter_g_control);
-                String[] quotes = { hoganQuote, kanyeQuote, malcolmQuote, carterGQuote };
-                Random random = new Random();
-                int i = random.nextInt(quotes.length);
+                if (mCurrentIndex < mQuoteBank.length - 1)
+                    mCurrentIndex++;
+                else
+                    mCurrentIndex = 0;
+
+                int quote = mQuoteBank[mCurrentIndex].getTextResId();
+                mQuoteTextView.setText(quote);
 
                 Toast.makeText(QuoteActivity.this,
-                        quotes[i],
+                        R.string.next_toast,
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mRandomButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Random random = new Random();
+                mCurrentIndex = random.nextInt(mQuoteBank.length);
+
+                int quote = mQuoteBank[mCurrentIndex].getTextResId();
+                mQuoteTextView.setText(quote);
+
+                Toast.makeText(QuoteActivity.this,
+                        R.string.random_toast,
                         Toast.LENGTH_SHORT).show();
             }
         });
