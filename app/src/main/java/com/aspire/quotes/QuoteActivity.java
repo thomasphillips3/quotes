@@ -30,6 +30,11 @@ public class QuoteActivity extends AppCompatActivity {
 
     private int mCurrentIndex = 0;
 
+    private void updateQuote() {
+        int quote = mQuoteBank[mCurrentIndex].getTextResId();
+        mQuoteTextView.setText(quote);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +56,7 @@ public class QuoteActivity extends AppCompatActivity {
                 else
                     mCurrentIndex = mQuoteBank.length-1;
 
-                int quote = mQuoteBank[mCurrentIndex].getTextResId();
-                mQuoteTextView.setText(quote);
+                updateQuote();
 
                 Toast.makeText(QuoteActivity.this,
                         R.string.prev_toast,
@@ -68,8 +72,7 @@ public class QuoteActivity extends AppCompatActivity {
                 else
                     mCurrentIndex = 0;
 
-                int quote = mQuoteBank[mCurrentIndex].getTextResId();
-                mQuoteTextView.setText(quote);
+                updateQuote();
 
                 Toast.makeText(QuoteActivity.this,
                         R.string.next_toast,
@@ -83,8 +86,7 @@ public class QuoteActivity extends AppCompatActivity {
                 Random random = new Random();
                 mCurrentIndex = random.nextInt(mQuoteBank.length);
 
-                int quote = mQuoteBank[mCurrentIndex].getTextResId();
-                mQuoteTextView.setText(quote);
+                updateQuote();
 
                 Toast.makeText(QuoteActivity.this,
                         R.string.random_toast,
