@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Quotes</string>
     <string name="question_text">This is True</string>
-    <string name="true_button">True</string>
-    <string name="next_button">Next Quote</string>
-    <string name="false_button">False</string>
-    <string name="right_toast">Right!</string>
-    <string name="wrong_toast">Wrong!</string>
+    <string name="prev_button">Prev</string>
+    <string name="next_button">Next</string>
+    <string name="random_button">Random</string>
+    <string name="prev_toast">Previous</string>
     <string name="next_toast">Next</string>
+    <string name="random_toast">Random</string>
 
     <!--Quotes-->
     <string name="quote_malcolm_education">Without education, you’re not going anywhere in this world.</string>

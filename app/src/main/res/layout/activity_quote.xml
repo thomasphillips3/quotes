@@ -7,10 +7,11 @@
               android:weightSum="1">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="351dp"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:id="@+id/quoteBox" />
+        android:id="@+id/quoteBox"
+        android:layout_weight="0.64"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -20,19 +21,23 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/trueButton"
-            android:text="@string/true_button"/>
+            android:id="@+id/prevButton"
+            android:text="@string/prev_button"
+            android:background="@color/colorAccent"
+            style="?android:attr/borderlessButtonStyle"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/falseButton"
-            android:text="@string/false_button"/>
+            android:id="@+id/nextButton"
+            android:text="@string/next_button"
+            android:background="@color/colorAccent"
+            style="?android:attr/borderlessButtonStyle"/>
     </LinearLayout>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/next_button"
-        android:id="@+id/next_button"/>
+        android:text="@string/random_button"
+        android:id="@+id/random_button"/>
 </LinearLayout>
