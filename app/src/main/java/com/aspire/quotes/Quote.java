@@ -1,33 +1,47 @@
-package com.aspire.quiz.quotes;
+package com.aspire.quotes;
 
 /**
  * Created by tpphilli on 11/2/16.
  */
 
 public class Quote {
+    private String mAuthor;
+    private String mKnowledge;
+    private String ANONYMOUS_AUTHOR = "Anonymous";
     private int mTextResId;
-    private boolean mAnswerTrue;
 
-    public void setTextResId(int textResId) {
-
+    public Quote(int textResId, String author, String knowledge) {
         mTextResId = textResId;
+        mAuthor = author;
+        mKnowledge = knowledge;
     }
 
-    public void setAnswerTrue(boolean answerTrue) {
-        mAnswerTrue = answerTrue;
+    public Quote(int textResId, String knowledge) {
+        mTextResId = textResId;
+        mAuthor = ANONYMOUS_AUTHOR;
+        mKnowledge = knowledge;
+    }
+
+    public String getAuthor() {
+        return mAuthor;
+    }
+
+    public void setAuthor(String author) {
+        mAuthor = author;
+    }
+
+    public String getKnowledge() {
+        return mKnowledge;
+    }
+    public void setKnowledge(String knowledge) {
+        mKnowledge = knowledge;
     }
 
     public int getTextResId() {
         return mTextResId;
     }
 
-    public boolean isAnswerTrue() {
-
-        return mAnswerTrue;
-    }
-
-    public Quote(int textResId, boolean answerTrue) {
+    public void setTextResId(int textResId) {
         mTextResId = textResId;
-        mAnswerTrue = answerTrue;
     }
 }
