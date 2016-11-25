@@ -35,6 +35,11 @@ public class QuoteActivity extends AppCompatActivity {
         mQuoteTextView.setText(quote);
     }
 
+    private int getRandomQuote() {
+        Random random = new Random();
+        return random.nextInt(mQuoteBank.length);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,9 +88,7 @@ public class QuoteActivity extends AppCompatActivity {
         mRandomButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Random random = new Random();
-                mCurrentIndex = random.nextInt(mQuoteBank.length);
-
+                mCurrentIndex = getRandomQuote();
                 updateQuote();
 
                 Toast.makeText(QuoteActivity.this,
