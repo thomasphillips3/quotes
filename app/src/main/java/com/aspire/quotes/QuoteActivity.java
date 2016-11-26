@@ -10,6 +10,8 @@ import android.widget.Toast;
 import java.util.Random;
 
 public class QuoteActivity extends AppCompatActivity {
+    private final String TAG = this.getClass().toString();
+    private static final String KEY_INDEX = "index";
 
     private Button mPrevButton;
     private Button mNextButton;
@@ -50,8 +52,11 @@ public class QuoteActivity extends AppCompatActivity {
         mRandomButton = (Button) findViewById(R.id.random_button);
 
         mQuoteTextView = (TextView) findViewById(R.id.quoteBox);
-        int quote = mQuoteBank[mCurrentIndex].getTextResId();
-        mQuoteTextView.setText(quote);
+
+        if (savedInstanceState != null) {
+            mCurrentIndex = savedInstanceState.getInt(KEY_INDEX, 0);
+        }
+        updateQuote();
 
         mPrevButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,5 +101,11 @@ public class QuoteActivity extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt(KEY_INDEX, mCurrentIndex);
     }
 }
